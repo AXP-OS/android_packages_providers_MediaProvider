@@ -316,9 +316,8 @@ public class MediaProviderTest {
     @Test
     public void testInsertionWithInvalidFilePath_throwsIllegalArgumentException() {
         final ContentValues values = new ContentValues();
-        values.put(MediaStore.MediaColumns.RELATIVE_PATH, "Android/media/com.example");
-        values.put(MediaStore.Images.Media.DISPLAY_NAME,
-                "./../../../../../../../../../../../data/media/test.txt");
+        values.put(MediaStore.MediaColumns.RELATIVE_PATH, "Android/media/com.example/");
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, "data/media/test.txt");
 
         assertThrows(
                 IllegalArgumentException.class, () -> sIsolatedResolver.insert(
